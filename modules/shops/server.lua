@@ -440,12 +440,12 @@ lib.callback.register('ox_inventory:buyItem', function(source, data)
 						end
 					end
 					if shop.label == "Ammunation" or "PoliceArmoury" then
-					local player = QBCore.Functions.GetPlayer(source)
-					local owner = player.PlayerData.charinfo.firstname .. " " .. player.PlayerData.charinfo.lastname
-					local weaponLabel = playerInv.items[data.toSlot].label
-					local weaponName = playerInv.items[data.toSlot].name
-					local invImage = ("https://cfx-nui-ox_inventory/web/images/%s.png"):format(weaponName)
-					exports['ps-mdt']:CreateWeaponInfo(metadata.serial, invImage, "", owner, "A", weaponLabel)
+						local player = QBCore.Functions.GetPlayer(source)
+						local owner = player.PlayerData.charinfo.firstname .. " " .. player.PlayerData.charinfo.lastname
+						local weaponLabel = playerInv.items[data.toSlot].label
+						local weaponName = playerInv.items[data.toSlot].name
+						local invImage = ("https://cfx-nui-ox_inventory/web/images/%s.png"):format(weaponName)
+						exports['ps-mdt']:CreateWeaponInfo(metadata.serial, invImage, "", owner, "A", weaponLabel)
 					end
 					return true, {data.toSlot, playerInv.items[data.toSlot], shop.items[data.fromSlot].count and shop.items[data.fromSlot], playerInv.weight}, { type = 'success', description = message }
 				end
